@@ -13,15 +13,15 @@ int main() {
     
     // Calculate the daily transportation emissions
     transportation_emissions = Transportation(miles_per_day);
-    printf("Your daily carbon emissions from transportation are: %.2lf kg CO2\n", transportation_emissions);
+    printf("Your daily carbon emissions from transportation are: %.2lf kg CO2\n\n", transportation_emissions);
 
     // Calculate the daily energy emissions
     energy_emissions = Housing(kwh_per_month);
-    printf("Your daily carbon emissions from electricity are: %.2lf kg CO2\n", energy_emissions);
+    printf("Your daily carbon emissions from electricity are: %.2lf kg CO2\n\n", energy_emissions);
 
     // Calculate the daily waste emissions
     waste_emissions = Consumption(waste_per_week);
-    printf("Your daily carbon emissions from waste are %.2lfkg CO2\n", waste_emissions);
+    printf("Your daily carbon emissions from waste are %.2lfkg CO2\n\n", waste_emissions);
 
     // Task 4: Calculate Total Carbon Footprint, John D. Petropoulos
     total_emissions = transportation_emissions + energy_emissions + waste_emissions;
@@ -130,19 +130,17 @@ double CompareToCanadianAverage(double total_emissions) {
     double average_canadian_daily = 54.8; // Average carbon footprint per day in Canada (kg CO2)
 
     // Display the total emissions calculated so far
+    printf("-------------------------------------------------------------------------\n\n");
     printf("Your total daily carbon footprint is: %.2f kg CO2\n", total_emissions);
 
         // Compare user's total emissions with the Canadian average
     if (total_emissions > average_canadian_daily) {
-        // If the user's emissions are higher than the national average
-        printf("Your carbon footprint is above the Canadian average of 54.8 kg CO2 per day.\n");
-        // Tells that the user adopt sustainable practices to reduce emissions
-        printf("Consider adopting more sustainable practices.\n");
+        // If the user's emissions are higher than the national average and tells that the user adopt sustainable practices to reduce emissions
+        printf("Your carbon footprint is above the Canadian average of 54.8 kg CO2 per day.\nConsider adopting more sustainable practices.\n");
     } else {
         // If the user's emissions are below the national average
-        printf("Your carbon footprint is below the Canadian average. Keep up the good work!\n");
+        printf("Your carbon footprint is below the Canadian average.\nKeep up the good work!\n");
     }
-
     // Reset the total emissions after displaying for the result, so the user can make a new calculation
     total_emissions = 0;    
 }
