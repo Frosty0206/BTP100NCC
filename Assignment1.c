@@ -6,7 +6,6 @@ double Consumption(double weekly_waste);
 double CompareToCanadianAverage(double total_emissions);
 
 int main() {
-    // int choice = -1; // Commented out for reasons mentioned in lines 32-34 - John D. Petropoulos
     double miles_per_day = 0.0, kwh_per_month = 0.0, waste_per_week = 0.0;
     double transportation_emissions = 0.0, energy_emissions = 0.0, waste_emissions = 0.0;
     double total_emissions = 0.0;
@@ -28,38 +27,6 @@ int main() {
 
     // Print final output
     CompareToCanadianAverage(total_emissions);
-
-    // Commented out the choice menu for now, it might be a bit confusing from a user's viewpoint.
-    // Might be easier to read the code without it, and it doesn't seem to be required for the assignment.
-    // Maybe just stick with the prompts that were mentioned in the assignment? Idk. - John D. Petropoulos  
-    // while (choice != 0) {
-    //     // Show the options for the user to pick
-    //     printf("Pick one of these options:\n");
-    //     printf("1. Transportation\n");
-    //     printf("2. Housing\n");
-    //     // printf("3. Both Housing and Transportation\n"); 
-    //     printf("0. Exit\n");
-    //     printf("Your choice (0, 1, 2, or 3): ");
-        
-    //     scanf("%d", &choice);
-        
-    //     switch (choice) {
-    //         case 0: // Exit
-    //             printf("Alright, exiting the program.\n");
-    //             break;
-    //         case 1:
-    //             Transportation(miles_per_day);
-    //             choice = -1;  // Reset to keep the loop going
-    //             break;
-    //         case 2:
-    //             Housing(kwh_per_month);
-    //             choice = -1;  // Reset to keep the loop going
-    //             break;
-    //         default:
-    //             printf("Whoops! Please enter 0, 1, 2, or 3.\n");
-    //             choice = -1;  // Reset to keep the loop going
-    //     }
-    // }
 
     return 0; // Indicates a successful exit
 }
