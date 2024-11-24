@@ -29,19 +29,50 @@ void inputEmployeeData(Employee employees[], int *count) {
     fgets(employees[*count].name, MAX_STRING_LENGTH, stdin);
     employees[*count].name[strcspn(employees[*count].name, "\n")] = '\0';  // Remove newline
 
-    printf("Enter Gender (male/female/non-binary): ");
-    fgets(employees[*count].gender, MAX_STRING_LENGTH, stdin);
-    employees[*count].gender[strcspn(employees[*count].gender, "\n")] = '\0';
+    //select valid gender input
+    int validGender = 0; // Flag for valid gender input
+    while (!validGender) {
+        printf("Enter Gender (male/female/non-binary): ");
+        fgets(employees[*count].gender, MAX_STRING_LENGTH, stdin);
+        employees[*count].gender[strcspn(employees[*count].gender, "\n")] = '\0';
 
-    printf("Enter Ethnicity: ");
-    fgets(employees[*count].ethnicity, MAX_STRING_LENGTH, stdin);
-    employees[*count].ethnicity[strcspn(employees[*count].ethnicity, "\n")] = '\0';
+        if (strcmp(employees[*count].gender, "male") == 0 ||
+            strcmp(employees[*count].gender, "female") == 0 ||
+            strcmp(employees[*count].gender, "non-binary") == 0) {
+            validGender = 1; // Set flag to indicate valid input
+        } else {
+            printf("Invalid gender input. Please enter 'male', 'female', or 'non-binary'.\n");
+        }
+    }
 
-    printf("Enter Salary: ");
-    scanf("%f", &employees[*count].salary);
+    int validEthnicity = 0; // Flag for valid ethnicity input
+    while (!validEthnicity) {
+        printf("Enter Ethnicity (BIPOC/Non-BIPOC): ");
+        fgets(employees[*count].ethnicity, MAX_STRING_LENGTH, stdin);
+        employees[*count].ethnicity[strcspn(employees[*count].ethnicity, "\n")] = '\0';
+
+        if (strcmp(employees[*count].ethnicity, "BIPOC") == 0 ||
+            strcmp(employees[*count].ethnicity, "Non-BIPOC") == 0) {
+            validEthnicity = 1; // Set flag to indicate valid input
+        } else {
+            printf("Invalid ethnicity input. Please enter 'BIPOC' or 'Non-BIPOC'.\n");
+        }
+    }
+
+    int validSalary = 0; // Flag for valid salary input
+    while (!validSalary) {
+        printf("Enter Salary: ");
+        if (scanf("%f", &employees[*count].salary) != 1) {
+            printf("Invalid input. Please enter a valid salary (numeric value).\n");
+            while(getchar() != '\n'); // Clear the input buffer
+        } else {
+            validSalary = 1; // Set flag to indicate valid input
+        }
+    }
 
     (*count)++;
 }
+
 
 // Function to calculate average salaries based on criteria
 float calculateAverageSalary(Employee employees[], int count, const char *criteria, const char *value) {
