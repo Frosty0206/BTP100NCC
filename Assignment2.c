@@ -66,8 +66,8 @@ void displayComparisonResults(Employee employees[], int count) {
     float companyFemaleAvg = calculateAverageSalary(employees, count, "gender", "female");
 
     // Replace these with actual Canadian average values
-    float canadianMaleAvg = 70000.0;
-    float canadianFemaleAvg = 65000.0;
+    float canadianMaleAvg = 64000.0;
+    float canadianFemaleAvg = 45800.0;
 
     printf("\nComparison of Average Salaries:\n");
     printf("Males: Company = %.2f, Canadian Average = %.2f\n", companyMaleAvg, canadianMaleAvg);
