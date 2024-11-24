@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAX_EMPLOYEES 100
 #define MAX_STRING_LENGTH 50
