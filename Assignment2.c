@@ -96,30 +96,34 @@ float calculateAverageSalary(Employee employees[], int count, const char *criter
 void displayComparisonResults(Employee employees[], int count) {
     float companyMaleAvg = calculateAverageSalary(employees, count, "gender", "male");
     float companyFemaleAvg = calculateAverageSalary(employees, count, "gender", "female");
-    float companyNonBinAvg = calculateAverageSalary(employees,count, "gender", "non-binary");
+    float companyNonBinAvg = calculateAverageSalary(employees, count, "gender", "non-binary");
     
     float companyBIPOCAvg = calculateAverageSalary(employees, count, "ethnicity", "BIPOC");
     float companyNonBIPOCAvg = calculateAverageSalary(employees, count, "ethnicity", "Non-BIPOC");
 
-    // gender and ethnicity average salaries
+    // Canadian average salaries
     float canadianMaleAvg = 64000.0;
     float canadianFemaleAvg = 45800.0;
     float canadianNonBinAvg = 36270.0;
-
     float canadianBIPOCAvg = 45700.0;
     float canadianNonBipocAvg = 54100.0;
 
     printf("\nComparison of Average Salaries:\n");
 
-    printf("\n Gender:\n");
-    printf("Males: Company = %.2f, Canadian Average = %.2f\n", companyMaleAvg, canadianMaleAvg);
-    printf("Females: Company = %.2f, Canadian Average = %.2f\n", companyFemaleAvg, canadianFemaleAvg);
-    printf("Non-Binary: Company = %.2f, Canadian Average = %.2f\n", companyNonBinAvg, canadianNonBinAvg);
+    printf("\nGender:\n");
+    printf("Males: Company = %.2f, Canadian Average = %.2f - %s\n", companyMaleAvg, canadianMaleAvg, 
+    (companyMaleAvg < canadianMaleAvg) ? "Less than the average" : "More than the average");
+    printf("Females: Company = %.2f, Canadian Average = %.2f - %s\n", companyFemaleAvg, canadianFemaleAvg, 
+    (companyFemaleAvg < canadianFemaleAvg) ? "Less than the average" : "More than the average");
+    printf("Non-Binary: Company = %.2f, Canadian Average = %.2f - %s\n",  companyNonBinAvg, canadianNonBinAvg, 
+    (companyNonBinAvg < canadianNonBinAvg) ? "Less than the average" : "More than the average");
 
-    printf("\n Ethnicity\n");
-    printf("BIPOC: Company = %.2f, Canadian Average = %.2f\n", companyBIPOCAvg, canadianBIPOCAvg);
-    printf("BIPOC: Company = %.2f, Canadian Average = %.2f\n", companyNonBIPOCAvg, canadianNonBipocAvg);
-}   
+    printf("\nEthnicity:\n");
+    printf("BIPOC: Company = %.2f, Canadian Average = %.2f - %s\n", companyBIPOCAvg, canadianBIPOCAvg, 
+    (companyBIPOCAvg < canadianBIPOCAvg) ? "Less than the average" : "More than the average");
+    printf("Non-BIPOC: Company = %.2f, Canadian Average = %.2f - %s\n", companyNonBIPOCAvg, canadianNonBipocAvg, 
+    (companyNonBIPOCAvg < canadianNonBipocAvg) ? "Less than the average" : "More than the average");
+}
 
 
 // Main function
