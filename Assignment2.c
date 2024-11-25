@@ -29,7 +29,7 @@ void inputEmployeeData(Employee employees[], int *count) {
     fgets(employees[*count].name, MAX_STRING_LENGTH, stdin);
     employees[*count].name[strcspn(employees[*count].name, "\n")] = '\0';  // Remove newline
 
-    //select valid gender input
+    // Select valid gender input
     int validGender = 0; // Flag for valid gender input
     while (!validGender) {
         printf("Enter Gender (male/female/non-binary): ");
